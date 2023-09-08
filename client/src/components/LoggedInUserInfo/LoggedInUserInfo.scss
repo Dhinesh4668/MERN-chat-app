@@ -1,0 +1,25 @@
+.loggedin-user-info{
+    display: grid;
+    align-items:  center;
+    box-shadow: 0px 1px 10px gray;
+    background-color: white;
+
+    .user{
+        border: none;
+        background-color: transparent;
+
+        .image{
+            --size: 35px;
+            border: 3px solid var(--bg-color);
+        }
+
+        .name{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+        }
+
+        &:hover{
+            box-shadow: none;
+        }
+    }
+}

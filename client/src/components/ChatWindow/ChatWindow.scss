@@ -1,0 +1,94 @@
+.chat-window{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    // box-shadow: 0px 0px 3px black;
+    // border: 1px solid black;
+
+    .window-sidebar{
+        // border: 1px solid black;
+        background-color: var(--secondary-bg);
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+        height: 100%;
+        min-width: 270px;
+        transition: transform 200ms ease-in-out;
+        // overflow-y: auto;
+
+        .loggedin-user-info{
+            width: 100%;
+            height: 68px;
+            background-color: var(--secondary-bg);
+        }
+    }
+
+    .chat-box{
+        flex-direction: column;
+        // background-color: #e3edee;
+        align-items: center;
+        width: 75%;
+        --other-users-info-height: 60px;
+
+        .other-user-info{
+            height: var(--other-users-info-height);
+            background-color: var(--secondary-bg);
+            // border: 1px solid black;
+        }
+
+        .chats{
+            width: 100%;
+            height: calc( 90% - var(--other-users-info-height) );
+            box-shadow: inset 1px 1px 5px var(--other-msg-bg);
+            // border: 1px solid black;
+        }
+    }
+}
+
+@media screen and (max-width: 750px){
+    .chat-window{
+        // position: relative;
+        height: 100%;
+
+        .window-sidebar{
+            position: absolute;
+            z-index: 10;
+            box-shadow: 1px 1px 5px var(--other-msg-bg);
+            transform: translateX(-110%);
+            width: 100%;
+
+            &.active{
+                transform: translateX(0%);
+            }
+        }
+
+        .chat-box{
+            width: 100%;
+
+            // .other-user-info{
+            //     // justify-content: space-between;
+            //     // .image{
+            //     //     margin-left: 20%;
+            //     // }
+            // }
+
+            .chats{
+                .toggle-sidebar{
+                    display: grid;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 416px){
+    .msg{
+        max-width: 200px;
+    }
+}

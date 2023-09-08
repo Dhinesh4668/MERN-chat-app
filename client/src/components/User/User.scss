@@ -1,0 +1,85 @@
+.user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 100ms ease-in-out,
+    box-shadow 200ms ease-in-out;
+    color: #4745B1;
+    background-color: white;
+    margin: 2px 0;
+
+    &:first-child{
+        margin: 0;
+    }
+
+    &:hover{
+        box-shadow: 1px 1px 2px var(--other-msg-bg);
+    }
+
+    .image{
+        position: relative;
+        --size: 30px;
+        width: var(--size);
+        height: var(--size);
+        border: 1px solid var(--other-msg-bg);
+        border-radius: 50%;
+        background-color: white;
+    }
+
+    .new-msg-count{
+        display: grid;
+        margin-left: auto;
+        margin-right: 25px;
+        background-color: var(--other-msg-bg);
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-weight: bold;
+        font-family: monospace;
+    }
+
+    .name {
+        position: relative;
+        font-size: 15px;
+        font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+        margin-left: 10px;
+        // text-transform: capitalize;
+    }
+
+    &.active{
+        background-color: var(--other-msg-bg);
+        color: white;
+
+        &.online{
+            &::after{
+                background-color: white;
+            }
+        }
+
+        .image{
+            border: none;
+        }
+    }
+
+    &.online{
+        &::after{
+            position: absolute;
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            right: 10px;
+        }
+    }
+}
+
+.loggedin-user-info {
+    .user{
+        .new-msg-count{
+            display: none;
+        }
+    }
+}
